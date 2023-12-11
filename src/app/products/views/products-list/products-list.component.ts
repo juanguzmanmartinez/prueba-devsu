@@ -74,6 +74,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         this.searchValues(res.searchValue);
       } else {
         this.dataSource = this.dataList;
+        this.setPagination();
       }
     });
   }
@@ -84,7 +85,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         if (productsResponse) {
           this.dataList = productsResponse;
           this.setProducts();
-          this.calculatePages();
+          this.calculatePages(this.dataList);
         }
       });
   }
@@ -116,8 +117,13 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   onChangePageSize() {
-    this.calculatePages();
+    this.calculatePages(this.dataList);
     this.setProducts();
+  }
+
+  setPagination() {
+    this.setProducts();
+    this.calculatePages(this.dataList);
   }
   setProducts() {
     this.dataSource = this.dataList.slice(
@@ -126,12 +132,17 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     );
   }
   searchValues(value: string) {
-    this.dataSource = this.dataList.filter((product) =>
-      product.name.includes(value)
-    );
+    this.dataSource = this.dataList
+      .filter((product) => product.name.includes(value))
+      .slice(
+        this.currentPage * this.pageSize - this.pageSize,
+        this.pageSize * this.currentPage
+      );
+
+    this.calculatePages(this.dataSource);
   }
-  calculatePages() {
-    this.totalPages = Math.ceil(this.dataList.length / this.pageSize);
+  calculatePages(data: IProduct[]) {
+    this.totalPages = Math.ceil(data.length / this.pageSize);
   }
   onPageChange(page: number) {
     this.currentPage = page;
