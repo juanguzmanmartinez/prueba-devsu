@@ -1,0 +1,8 @@
+<div class="skeleton-container">
+  <div *ngFor="let row of getRowArray(); let i = index" class="skeleton-row">
+    <div
+      *ngFor="let col of getColumnArray(); let j = index"
+      class="skeleton-column"
+    ></div>
+  </div>
+</div>

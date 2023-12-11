@@ -1,0 +1,11 @@
+<div class="app-dropdown">
+  <button class="dropdown-button" (blur)="onBlur()">
+    <i
+      (click)="showOptions = !showOptions"
+      class="bx bx-dots-vertical-rounded"
+    ></i>
+  </button>
+  <div class="options" *ngIf="showOptions">
+    <ng-content> </ng-content>
+  </div>
+</div>

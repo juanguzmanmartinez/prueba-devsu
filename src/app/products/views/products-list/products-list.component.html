@@ -1,0 +1,89 @@
+<div *ngIf="dataList.length > 0; else loader" class="content-products-list">
+  <div [formGroup]="form" class="content-controls">
+    <app-input
+      placeholder="Search..."
+      formControlName="searchValue"
+    ></app-input>
+    <app-button (clicked)="goToAdd()" appearance="primary">Agregar</app-button>
+  </div>
+  <app-table
+    [headerTemplate]="customHeader"
+    [rowTemplate]="customRow"
+    [dataSource]="dataSource"
+    innerClass="custom-table"
+  >
+    <ng-template #customHeader>
+      <th *ngFor="let column of columns">
+        {{ column }}<i class="bx bxs-info-circle"></i>
+      </th>
+    </ng-template>
+
+    <ng-template #customRow let-producto>
+      <td>
+        <div class="content-logo">
+          <img [src]="producto.logo" alt="" />
+        </div>
+      </td>
+
+      <td>{{ producto.name }}</td>
+      <td>{{ producto.description }}</td>
+      <td>{{ producto.date_release | date : "dd-MM-YY" }}</td>
+      <td>{{ producto.date_revision | date : "dd-MM-YY" }}</td>
+      <td>
+        <div class="content-dropdown">
+          <app-dropdown #dropDown [showOptions]="showOptions">
+            <ul (click)="dropDown.showOptions = false">
+              <li>
+                <a
+                  (click)="editProduct(producto)"
+                  class="text-body-2-regular capacity-card-text mb-0"
+                >
+                  Editar
+                </a>
+              </li>
+              <li>
+                <a
+                  (click)="deleteProduct(producto)"
+                  class="text-body-2-regular capacity-card-text mb-0"
+                >
+                  Eliminar
+                </a>
+              </li>
+            </ul>
+          </app-dropdown>
+        </div>
+      </td>
+    </ng-template>
+  </app-table>
+  <div class="content-pagination">
+    <div>
+      <p>{{ dataSource.length }} resultados</p>
+    </div>
+    <div class="pagination-buttons">
+      <div class="pagination-buttons__controls">
+        <ng-container *ngFor="let page of getPagesArray()">
+          <button
+            [class.button-active]="page == currentPage"
+            class="button-pagination"
+            (click)="onPageChange(page)"
+          >
+            {{ page }}
+          </button>
+        </ng-container>
+      </div>
+      <select
+        (change)="onChangePageSize()"
+        [(ngModel)]="pageSize"
+        name=""
+        id=""
+      >
+        <option *ngFor="let pageSize of pageSizeOptions" [value]="pageSize">
+          {{ pageSize }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+<ng-template #loader>
+  <app-skeleton></app-skeleton>
+</ng-template>

@@ -1,0 +1,16 @@
+<table class="table-list">
+  <thead>
+    <tr>
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let producto of dataSource">
+      <tr>
+        <ng-container
+          *ngTemplateOutlet="rowTemplate; context: { $implicit: producto }"
+        ></ng-container>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

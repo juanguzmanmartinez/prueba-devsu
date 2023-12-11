@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  width: 100%;
+  .container-logo {
+    height: 60px;
+    img {
+      height: 100%;
+    }
+  }
+}
+.content-products {
+  background-color: #f4f6f9;
+  padding: 90px 0 60px;
+}

@@ -1,0 +1,66 @@
+<form [formGroup]="form" class="container-form">
+  <div class="content-form-inputs">
+    <div class="content-form-inputs__formcontrol">
+      <app-label>ID</app-label>
+      <app-input
+        formControlName="id"
+        [error]="idControl.invalid && idControl.dirty"
+        [messageError]="errorMessages(idControl.errors)"
+        [disabled]="idControl.disabled"
+      ></app-input>
+    </div>
+    <div class="content-form-inputs__formcontrol">
+      <app-label>Nombre</app-label>
+      <app-input
+        formControlName="name"
+        [error]="nameControl.invalid && nameControl.dirty"
+        [messageError]="errorMessages(nameControl.errors)"
+      ></app-input>
+    </div>
+    <div class="content-form-inputs__formcontrol">
+      <app-label>Descripción</app-label>
+      <app-input
+        formControlName="description"
+        [error]="descriptionControl.invalid && descriptionControl.dirty"
+        [messageError]="errorMessages(descriptionControl.errors)"
+      ></app-input>
+    </div>
+    <div class="content-form-inputs__formcontrol">
+      <app-label>Logo</app-label>
+      <app-input
+        formControlName="logo"
+        [error]="logoControl.invalid && logoControl.dirty"
+        [messageError]="errorMessages(logoControl.errors)"
+      ></app-input>
+    </div>
+    <div class="content-form-inputs__formcontrol">
+      <app-label>Fecha de liberacion</app-label>
+      <app-input
+        formControlName="dateRelease"
+        behavior="date"
+        [error]="dateReleaseControl.invalid && dateReleaseControl.dirty"
+        [messageError]="errorMessages(dateReleaseControl.errors)"
+      ></app-input>
+    </div>
+    <div class="content-form-inputs__formcontrol">
+      <app-label>Fecha de revision</app-label>
+      <app-input
+        formControlName="dateRevision"
+        behavior="date"
+        [error]="dateRevisionControl.invalid && dateRevisionControl.dirty"
+        [messageError]="errorMessages(dateRevisionControl.errors)"
+      ></app-input>
+    </div>
+  </div>
+  <div class="content-form-buttons">
+    <app-button (clicked)="resetForm()" appearance="secondary"
+      >Reiniciar</app-button
+    >
+    <app-button
+      [disabled]="statusForm"
+      (clicked)="submitForm()"
+      appearance="primary"
+      >Enviar</app-button
+    >
+  </div>
+</form>

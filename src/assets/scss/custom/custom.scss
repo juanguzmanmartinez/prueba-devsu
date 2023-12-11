@@ -1,0 +1,122 @@
+.button {
+  border: none;
+  padding: 12px 24px;
+  color: #1c2b5e;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 16px;
+}
+.button-primary {
+  background: #f9de4b;
+  &.button-disabled {
+    background-color: #fff199;
+    color: #bbbdb2;
+    cursor: auto;
+  }
+}
+.button-secondary {
+  background: #e9ecf3;
+}
+
+.input-basic {
+  padding: 8px;
+  border: 1px solid #838383;
+  border-radius: 5px;
+  color: #000;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: left;
+  &.input-disabled {
+    background: #d6d6d6;
+  }
+}
+h1 {
+  font-size: 48px;
+  color: #1c2b5e;
+  font-weight: 900;
+}
+.divider {
+  height: 2px;
+  width: 100%;
+  background-color: #1c2b5e;
+}
+.label {
+  color: #1c2b5e;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: left;
+}
+.text-error {
+  color: #e46161;
+}
+.input-error {
+  border: 2px solid #e46161;
+}
+
+table.table-list {
+  background-color: #ffffff;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+table.table-list td,
+table.table-list th {
+  border-bottom: 1px solid #aaaaaa;
+  padding: 15px 10px;
+}
+table.table-list tbody td {
+  font-size: 13px;
+}
+table.table-list thead {
+  border-bottom: 2px solid #444444;
+}
+table.table-list thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+table.table-list tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  border-top: 2px solid #444444;
+}
+table.table-list tfoot td {
+  font-size: 14px;
+}
+table.table-list tfoot .links {
+  text-align: right;
+}
+table.table-list tfoot .links a {
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+table.table-list th:first-child,
+td:first-child {
+  max-width: 100px;
+}
+table.table-list th:nth-child(2),
+td:nth-child(2) {
+  max-width: 180px;
+}
+table.table-list th:nth-child(3),
+td:nth-child(3) {
+  max-width: 180px;
+}
+table.table-list th:nth-child(4),
+td:nth-child(4) {
+  max-width: 100px;
+}
+table.table-list th:nth-child(5),
+td:nth-child(5) {
+  max-width: 100px;
+}
+table.table-list th:nth-child(6),
+td:nth-child(6) {
+  max-width: 80px;
+}

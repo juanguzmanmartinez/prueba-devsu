@@ -1,0 +1,17 @@
+<div class="container-input">
+  <input
+    class="input-basic"
+    [class.input-error]="error"
+    [class.input-disabled]="disabled"
+    [ngClass]="innerClass"
+    [id]="id"
+    [type]="behavior"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (input)="onInputChange($event)"
+  />
+  <p *ngIf="error" class="text-error">
+    {{ messageError }}
+  </p>
+</div>

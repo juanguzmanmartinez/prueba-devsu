@@ -1,0 +1,9 @@
+<a routerLink="/">Atrás</a>
+<div class="content-products-edit">
+  <h1>Formulario de edición</h1>
+  <div class="divider"></div>
+  <app-product-form
+    (submit)="submitForm()"
+    [product]="product"
+  ></app-product-form>
+</div>

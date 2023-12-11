@@ -1,0 +1,40 @@
+.app-dropdown {
+  position: relative;
+  .dropdown-button {
+    font-size: 36px;
+    border: none;
+    margin: 0 auto;
+    background: none;
+    cursor: pointer;
+  }
+  .options {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px 20px 40px rgba(70, 73, 77, 0.08);
+    border-radius: 8px;
+    min-width: 90px;
+    z-index: 1;
+    border: 1px solid rgba(70, 73, 77, 0.08);
+    ul {
+      list-style: none;
+      li {
+        height: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+:host ::ng-deep ul {
+  list-style: none;
+  li {
+    height: 28px;
+    font-weight: 600;
+    line-height: 28px;
+    padding: 0 4px;
+    border: 1px solid rgba(70, 73, 77, 0.08);
+    cursor: pointer;
+  }
+}

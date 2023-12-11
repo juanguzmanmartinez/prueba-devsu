@@ -1,0 +1,17 @@
+<div class="modal">
+  <div class="modal-overlay" (click)="close($event)"></div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <p>¿Estas seguro de eliminar el producto {{ nameProduct }}?</p>
+    </div>
+    <div class="divider-modal"></div>
+    <div class="modal-actions">
+      <app-button appearance="secondary" (clicked)="close(false)"
+        >Cancelar</app-button
+      >
+      <app-button appearance="primary" (clicked)="close(true)"
+        >Confirmar</app-button
+      >
+    </div>
+  </div>
+</div>

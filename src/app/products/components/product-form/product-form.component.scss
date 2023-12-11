@@ -1,0 +1,16 @@
+.container-form {
+  padding: 25px 35px;
+  .content-form-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding-bottom: 30px;
+    &__formcontrol {
+      text-align: left;
+    }
+  }
+  .content-form-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
