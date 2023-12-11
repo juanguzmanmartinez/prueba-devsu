@@ -1,8 +1,4 @@
-import {
-  ComponentFactoryResolver,
-  Injectable,
-  ViewContainerRef,
-} from '@angular/core';
+import { Injectable, ViewContainerRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ModalDeleteProductsComponent } from './modal-delete-products.component';
 
@@ -10,9 +6,7 @@ import { ModalDeleteProductsComponent } from './modal-delete-products.component'
   providedIn: 'root',
 })
 export class ModalDeleteProductsService {
-  constructor(private factoryResolver: ComponentFactoryResolver) {
-    this.factoryResolver = factoryResolver;
-  }
+  constructor() {}
   private rootViewContainer!: ViewContainerRef;
   private submitFormSubject = new Subject<any>();
 
@@ -27,11 +21,10 @@ export class ModalDeleteProductsService {
       );
       return;
     }
-
-    const factory = this.factoryResolver.resolveComponentFactory(
+    const component = this.rootViewContainer.createComponent(
       ModalDeleteProductsComponent
     );
-    const component = factory.create(this.rootViewContainer.injector);
+
     this.rootViewContainer.insert(component.hostView);
 
     component.instance.nameProduct = nameProduct;

@@ -56,10 +56,11 @@ h1 {
 
 table.table-list {
   background-color: #ffffff;
-  width: 100%;
+  max-width: 100%;
   text-align: left;
   border-collapse: collapse;
   border-radius: 5px;
+  overflow-x: auto;
 }
 table.table-list td,
 table.table-list th {
@@ -119,4 +120,11 @@ td:nth-child(5) {
 table.table-list th:nth-child(6),
 td:nth-child(6) {
   max-width: 80px;
+}
+
+@media (max-width: 650px) {
+  table.table-list td,
+  table.table-list th {
+    padding: 5px;
+  }
 }

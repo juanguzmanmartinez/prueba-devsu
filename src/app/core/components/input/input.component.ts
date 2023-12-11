@@ -50,10 +50,6 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    // Implementar según sea necesario
-  }
-
   onInputChange(event: any): void {
     this.value = event.target.value;
     this.onChange(this.value);

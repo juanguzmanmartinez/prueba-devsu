@@ -6,55 +6,56 @@
     ></app-input>
     <app-button (clicked)="goToAdd()" appearance="primary">Agregar</app-button>
   </div>
-  <app-table
-    [headerTemplate]="customHeader"
-    [rowTemplate]="customRow"
-    [dataSource]="dataSource"
-    innerClass="custom-table"
-  >
-    <ng-template #customHeader>
-      <th *ngFor="let column of columns">
-        {{ column }}<i class="bx bxs-info-circle"></i>
-      </th>
-    </ng-template>
+  <div class="container-table">
+    <app-table
+      [headerTemplate]="customHeader"
+      [rowTemplate]="customRow"
+      [dataSource]="dataSource"
+    >
+      <ng-template #customHeader>
+        <th *ngFor="let column of columns">
+          {{ column }}<i class="bx bxs-info-circle"></i>
+        </th>
+      </ng-template>
 
-    <ng-template #customRow let-producto>
-      <td>
-        <div class="content-logo">
-          <img [src]="producto.logo" alt="" />
-        </div>
-      </td>
+      <ng-template #customRow let-producto>
+        <td>
+          <div class="content-logo">
+            <img [src]="producto.logo" alt="" />
+          </div>
+        </td>
 
-      <td>{{ producto.name }}</td>
-      <td>{{ producto.description }}</td>
-      <td>{{ producto.date_release | date : "dd-MM-YY" }}</td>
-      <td>{{ producto.date_revision | date : "dd-MM-YY" }}</td>
-      <td>
-        <div class="content-dropdown">
-          <app-dropdown #dropDown [showOptions]="showOptions">
-            <ul (click)="dropDown.showOptions = false">
-              <li>
-                <a
-                  (click)="editProduct(producto)"
-                  class="text-body-2-regular capacity-card-text mb-0"
-                >
-                  Editar
-                </a>
-              </li>
-              <li>
-                <a
-                  (click)="deleteProduct(producto)"
-                  class="text-body-2-regular capacity-card-text mb-0"
-                >
-                  Eliminar
-                </a>
-              </li>
-            </ul>
-          </app-dropdown>
-        </div>
-      </td>
-    </ng-template>
-  </app-table>
+        <td>{{ producto.name }}</td>
+        <td>{{ producto.description }}</td>
+        <td>{{ producto.date_release | date : "dd-MM-YY" }}</td>
+        <td>{{ producto.date_revision | date : "dd-MM-YY" }}</td>
+        <td>
+          <div class="content-dropdown">
+            <app-dropdown #dropDown [showOptions]="showOptions">
+              <ul (click)="dropDown.showOptions = false">
+                <li>
+                  <a
+                    (click)="editProduct(producto)"
+                    class="text-body-2-regular capacity-card-text mb-0"
+                  >
+                    Editar
+                  </a>
+                </li>
+                <li>
+                  <a
+                    (click)="deleteProduct(producto)"
+                    class="text-body-2-regular capacity-card-text mb-0"
+                  >
+                    Eliminar
+                  </a>
+                </li>
+              </ul>
+            </app-dropdown>
+          </div>
+        </td>
+      </ng-template>
+    </app-table>
+  </div>
   <div class="content-pagination">
     <div>
       <p>{{ dataSource.length }} resultados</p>
@@ -85,5 +86,7 @@
   </div>
 </div>
 <ng-template #loader>
-  <app-skeleton></app-skeleton>
+  <div class="content-products-list">
+    <app-skeleton></app-skeleton>
+  </div>
 </ng-template>

@@ -19,7 +19,6 @@ export class ProductsAddFormService {
     Validators.required,
     Validators.minLength(3),
     Validators.maxLength(10),
-    // this.ValidatoId,
   ]);
   private _nameControl: FormControl = new FormControl('', [
     Validators.required,
@@ -84,14 +83,4 @@ export class ProductsAddFormService {
   ngOnDestroy(): void {
     this.resetForm();
   }
-
-  // ValidatoId(): ValidatorFn {
-  //   return (control: AbstractControl): ValidationErrors | null => {
-  //     const isValid = control.value === true || control.value === false;
-  //     if (!isValid) {
-  //       return { booleanValue: { valid: false } };
-  //     }
-  //     return null;
-  //   };
-  // }
 }
