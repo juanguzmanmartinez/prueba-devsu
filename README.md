@@ -4,10 +4,10 @@ Este proyecto es para una prueba tecnica
 
 ## Instalación
 
-Clona el repositorio `https://github.com/juanguzmanmartinez/prueba-devsu`
+Clonar el repositorio `https://github.com/juanguzmanmartinez/prueba-devsu`
 
-Angular version 14.1.0
-Node version 16.10.0
+-Angular version 14.1.0
+-Node version 16.10.0
 
 ## Ejecucion
 
